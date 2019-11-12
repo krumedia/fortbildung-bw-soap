@@ -15,7 +15,9 @@ $password = '';
 
 if (PHP_SAPI !== 'cli') {
 	echo '<pre>';
-	ob_start(static function(string $input): string{return nl2br(htmlspecialchars($input));});
+	ob_start(static function (string $input): string {
+		return nl2br(htmlspecialchars($input));
+	});
 }
 if (empty($user) || empty($password)) {
 	echo sprintf(
