@@ -1,9 +1,12 @@
-# Dies ist eine beispielhafte Verwendung eines SOAP-Clients.
- 
-## Alle verfügbaren Funktionen anzeigen
-CLI     : php example/basicExample.php
+# SOAP-Client Demo von fortbildung-bw.de
+Dies demonstriert die Verwendung eines SOAP-Clients.
 
-Browser : basicExample.php
+## Alle verfügbaren Funktionen anzeigen
+Liest die externe wsdl ein und zeigt die verfügbaren Funktionen an.
+```bash
+php example/basicExample.php
+```
+oder in ihrem Test-WebProjekt : /basicExample.php
 
 # Beispielhafte Implementierung eines Aufrufes zum Abrufen der Veranstalter
 CLI     : php example/basicExample.php '{"function":"getVeranstalter"}'
