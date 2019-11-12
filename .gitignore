@@ -1,0 +1,10 @@
+# IDE
+/.idea/**
+!/.idea/**/
+!/.idea/inspectionProfiles/Development.xml
+!/.idea/inspectionProfiles/profiles_settings.xml
+*.secret
+
+
+# external libraries
+/vendor
