@@ -2,37 +2,15 @@
 
 namespace FortbildungBwSoap\Model;
 
-class FilterKurs
+use stdClass;
+
+class FilterKurs extends Filter
 {
-	/**
-	 * words to search for
-	 * @var string
-	 */
-	public $stichwort;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $rubrik;
-
 	/**
 	 * begins in int days
 	 * @var int
 	 */
 	public $beginntIn;
-
-	/**
-	 *
-	 * @var int
-	 */
-	public $plz;
-
-	/**
-	 *  radius in km
-	 * @var int
-	 */
-	public $radius;
 
 	/**
 	 *
@@ -45,22 +23,12 @@ class FilterKurs
 	 */
 	public $bildungsGutschein;
 
-	/**
-	 * "titel"|"beginn"|"plz";
-	 * @var string
-	 */
-	public $orderby = "titel";
-
-	/**
-	 * asc|desc
-	 * @var string
-	 */
-	public $sortby;
-
-	/**
-	 *
-	 */
-	public $lastUpdate;
-
+	public function __construct(stdClass $input)
+	{
+		parent::__construct($input);
+		$this->beginntIn = $input->beginntIn ?? 0;
+		$this->abendKurs = $input->abendKurs ?? false;
+		$this->bildungsGutschein = $input->bildungsGutschein ?? false;
+	}
 }
 
