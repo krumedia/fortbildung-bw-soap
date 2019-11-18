@@ -2,7 +2,7 @@
 
 namespace FortbildungBwSoap;
 
-use SoapClient;
+use FortbildungBwSoap\Model\WbSoapClient;
 use SoapFault;
 use FortbildungBwSoap\Model\FilterAnbieter;
 use FortbildungBwSoap\Model\FilterKurs;
@@ -37,7 +37,7 @@ class SClient
 			'exceptions' => true,
 		];
 		try {
-			$client = new SoapClient('https://www.fortbildung-bw.de/export/soap.php?wsdl', $options);
+			$client = new WbSoapClient('https://www.fortbildung-bw.de/export/soap.php?wsdl', $options);
 			if (!isset($this->inputData['function'])) {
 				$functions = $client->__getFunctions();
 				var_dump($functions);

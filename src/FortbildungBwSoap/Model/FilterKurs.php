@@ -23,12 +23,12 @@ class FilterKurs extends Filter
 	 */
 	public $bildungsGutschein;
 
-	public function __construct(stdClass $input)
+	public function __construct(?stdClass $input = null)
 	{
 		parent::__construct($input);
-		$this->beginntIn = $input->beginntIn ?? 0;
-		$this->abendKurs = $input->abendKurs ?? false;
-		$this->bildungsGutschein = $input->bildungsGutschein ?? false;
+		$this->beginntIn = $input->beginntIn ?? null;
+		$this->abendKurs = $input->abendKurs ?? null;
+		$this->bildungsGutschein = $input->bildungsGutschein ?? null;
 	}
 }
 

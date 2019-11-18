@@ -49,14 +49,14 @@ abstract class Filter
 	public $lastUpdate;
 
 	/**
-	 * @param stdClass $input
+	 * @param null|stdClass $input
 	 */
-	public function __construct(stdClass $input)
+	public function __construct(?stdClass $input = null)
 	{
 		$this->stichwort = $input->stichwort ?? '';
-		$this->rubrik = $input->rubrik ?? '';
-		$this->plz = $input->plz ?? '';
-		$this->radius = $input->radius ?? -1;
+		$this->rubrik = $input->rubrik ?? null;
+		$this->plz = $input->plz ?? null;
+		$this->radius = $input->radius ?? null;
 		$this->orderby = $input->orderby ?? 'titel';
 		$this->sortby = $input->sortby ?? 'asc';
 		$this->lastUpdate = $input->lastUpdate ?? null;
