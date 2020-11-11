@@ -2,7 +2,7 @@
 
 namespace FortbildungBwSoap\Model;
 
-class Anbieter extends AnbieterAbstract
+class Anbieter extends BaseAnbieter
 {
 	public $info;
 	public $telefon;

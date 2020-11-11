@@ -2,9 +2,10 @@
 
 namespace FortbildungBwSoap\Model;
 
-class AnbieterAbstract
+class BaseAnbieter
 {
 	public $id;
 	public $email;
 	public $url;
+
 }

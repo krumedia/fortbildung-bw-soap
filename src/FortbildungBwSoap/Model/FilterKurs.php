@@ -6,6 +6,8 @@ use stdClass;
 
 class FilterKurs extends Filter
 {
+	use FilterLocationTrait;
+
 	/**
 	 * begins in int days
 	 * @var int
@@ -26,6 +28,7 @@ class FilterKurs extends Filter
 	public function __construct(?stdClass $input = null)
 	{
 		parent::__construct($input);
+		$this->constructFilterLocationTrait($input);
 		$this->beginntIn = $input->beginntIn ?? null;
 		$this->abendKurs = $input->abendKurs ?? null;
 		$this->bildungsGutschein = $input->bildungsGutschein ?? null;

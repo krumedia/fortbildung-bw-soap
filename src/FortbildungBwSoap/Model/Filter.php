@@ -5,7 +5,7 @@ namespace FortbildungBwSoap\Model;
 use DateTime;
 use stdClass;
 
-abstract class Filter
+abstract class Filter extends ModelHint
 {
 	/**
 	 * words to search for
@@ -18,18 +18,6 @@ abstract class Filter
 	 * @var string
 	 */
 	public $rubrik;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $plz;
-
-	/**
-	 * radius in km
-	 * @var int
-	 */
-	public $radius;
 
 	/**
 	 * "titel"|"beginn"|"plz";
@@ -53,10 +41,9 @@ abstract class Filter
 	 */
 	public function __construct(?stdClass $input = null)
 	{
+		parent::__construct();
 		$this->stichwort = $input->stichwort ?? '';
 		$this->rubrik = $input->rubrik ?? null;
-		$this->plz = $input->plz ?? null;
-		$this->radius = $input->radius ?? null;
 		$this->orderby = $input->orderby ?? 'titel';
 		$this->sortby = $input->sortby ?? 'asc';
 		$this->lastUpdate = $input->lastUpdate ?? null;

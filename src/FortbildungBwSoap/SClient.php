@@ -6,6 +6,8 @@ use FortbildungBwSoap\Model\WbSoapClient;
 use SoapFault;
 use FortbildungBwSoap\Model\FilterAnbieter;
 use FortbildungBwSoap\Model\FilterKurs;
+use FortbildungBwSoap\Model\FilterOnlineKurs;
+use stdClass;
 
 class SClient
 {
@@ -42,9 +44,15 @@ class SClient
 				$functions = $client->__getFunctions();
 				var_dump($functions);
 			} else if ($this->inputData['function'] === 'getKurs') {
-				$filter = new FilterKurs();
-				$filter->radius = 25;
-				$filter->plz = 71131;
+
+				$filterData = new stdClass();
+				$filterData->radius = 25;
+				$filterData->plz = 71131;
+				$filter = new FilterKurs($filterData);
+				var_dump($client->getKurs($login, $password, $filter));
+
+				$filterData = new stdClass();
+				$filter = new FilterOnlineKurs($filterData);
 				var_dump($client->getKurs($login, $password, $filter));
 			} else if ($this->inputData['function'] === 'getAnbieter') {
 				$filter = new FilterAnbieter();
